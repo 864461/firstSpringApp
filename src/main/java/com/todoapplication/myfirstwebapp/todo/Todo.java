@@ -3,7 +3,7 @@ package com.todoapplication.myfirstwebapp.todo;
 import javax.validation.constraints.Size;
 import java.time.LocalDate;
 
-public class ToDo {
+public class Todo {
     private int id;
 
     @Size(min=10, message="Enter at-least 10 characters")
@@ -13,7 +13,7 @@ public class ToDo {
     private boolean done;
 
 
-    public ToDo(int id, String description,String userName, LocalDate targetDate, boolean done) {
+    public Todo(int id, String description,String userName, LocalDate targetDate, boolean done) {
         this.id = id;
         this.userName = userName;
         this.description = description;
