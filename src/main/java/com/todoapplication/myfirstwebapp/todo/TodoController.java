@@ -44,14 +44,12 @@ public class toDoController {
 
     @RequestMapping(value="add-todo", method = RequestMethod.POST)
     public String newToDoController(ModelMap model, @Valid ToDo todo, BindingResult result){
-        String userName = (String) model.get("name");
-        ToDo todos = new ToDo(7,"",userName,LocalDate.now().plusYears(3),false);
-        model.put("todo", todos);
+
         if(result.hasErrors()) {
             return "todo";
         }
+        String userName = (String) model.get("name");
 
-//        String userName = (String) model.get("name");
         toDoService.addToDo( userName, todo.getDescription(),  LocalDate.now(), false);
         return "redirect:list-todos";
     }
