@@ -1,9 +1,31 @@
 package com.todoapplication.myfirstwebapp.todo;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
 import javax.validation.constraints.Size;
 import java.time.LocalDate;
+//Map todo to entity
 
+@Entity
 public class Todo {
+
+    public Todo() {
+
+    }
+
+    public Todo(int id, String description,String userName, LocalDate targetDate, boolean done) {
+        super();
+        this.id = id;
+        this.userName = userName;
+        this.description = description;
+        this.targetDate = targetDate;
+        this.done = done;
+    }
+
+
+    @Id
+    @GeneratedValue
     private int id;
 
     @Size(min=10, message="Enter at-least 10 characters")
@@ -13,13 +35,7 @@ public class Todo {
     private boolean done;
 
 
-    public Todo(int id, String description,String userName, LocalDate targetDate, boolean done) {
-        this.id = id;
-        this.userName = userName;
-        this.description = description;
-        this.targetDate = targetDate;
-        this.done = done;
-    }
+
 
     public String getUserName() {
         return userName;
